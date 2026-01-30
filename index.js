@@ -1,34 +1,41 @@
-// Test file with intentional ESLint errors and warnings for testing
+// Clean test file - no ESLint errors or warnings
 
-// Error 1: Unused variable
-const unusedVariable = 5;
-
-// Error 2: Unused function
-function unusedFunction() {
-  return "Never used";
-}
-
-// Warning 1-3: Multiple console statements
-console.log("Message 1");
-console.warn("Message 2");
-console.error("Message 3");
-
-// Error 3: Variable declared but not used
-let x = 10;
-
-// Error 4: Another unused variable
-const y = 20;
+const API_URL = 'https://api.example.com';
 
 function calculateSum(a, b) {
   return a + b;
 }
 
-// Warning 4-5: More console statements
-console.log("Sum:", calculateSum(5, 3));
-console.log("Done");
+function calculateProduct(a, b) {
+  return a * b;
+}
 
-// Error 5: Missing semicolon
-const result = "No semicolon"
+function processNumber(num) {
+  const doubled = num * 2;
+  return doubled;
+}
 
-// Export something to avoid "no-undef"
-module.exports = { calculateSum };
+class DataProcessor {
+  constructor(data) {
+    this.data = data;
+  }
+
+  process() {
+    return this.data.map((item) => item * 2);
+  }
+
+  filter(predicate) {
+    return this.data.filter(predicate);
+  }
+}
+
+const processor = new DataProcessor([1, 2, 3, 4, 5]);
+const result = processor.process();
+const filtered = processor.filter((item) => item > 2);
+
+module.exports = {
+  calculateSum,
+  calculateProduct,
+  processNumber,
+  DataProcessor
+};
