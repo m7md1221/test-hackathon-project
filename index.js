@@ -1,20 +1,33 @@
-// Test file with ONLY warnings (no errors)
+// Perfect clean code - 100/100 score
+// No ESLint errors or warnings
+
+const API_URL = 'https://api.example.com';
 
 function calculateSum(a, b) {
-  console.log('Calculating sum...'); // Warning: console
   return a + b;
 }
 
 function calculateProduct(a, b) {
-  console.log('Calculating product...'); // Warning: console
   return a * b;
 }
 
-function processData(data) {
-  console.warn('Processing data...'); // Warning: console
-  const result = data.map((item) => item * 2);
-  console.log('Processing complete'); // Warning: console
-  return result;
+function calculateDifference(a, b) {
+  return a - b;
+}
+
+function calculateDivision(a, b) {
+  if (b === 0) {
+    throw new Error('Division by zero');
+  }
+  return a / b;
+}
+
+function processArray(arr) {
+  return arr.map((item) => item * 2);
+}
+
+function filterPositive(arr) {
+  return arr.filter((item) => item > 0);
 }
 
 class Calculator {
@@ -23,31 +36,40 @@ class Calculator {
   }
 
   add(a, b) {
-    const result = a + b;
-    console.log('Add result:', result); // Warning: console
-    this.history.push(result);
+    const result = calculateSum(a, b);
+    this.history.push({ operation: 'add', result });
     return result;
   }
 
   multiply(a, b) {
-    const result = a * b;
-    console.log('Multiply result:', result); // Warning: console
-    this.history.push(result);
+    const result = calculateProduct(a, b);
+    this.history.push({ operation: 'multiply', result });
     return result;
+  }
+
+  getHistory() {
+    return this.history;
+  }
+
+  clearHistory() {
+    this.history = [];
   }
 }
 
-const calc = new Calculator();
-calc.add(10, 20);
-calc.multiply(5, 3);
+const calculator = new Calculator();
+const sum = calculator.add(10, 20);
+const product = calculator.multiply(5, 3);
 
-const data = [1, 2, 3, 4, 5];
-const processed = processData(data);
-console.log('Final result:', processed); // Warning: console
+const numbers = [1, 2, 3, 4, 5];
+const doubled = processArray(numbers);
+const positive = filterPositive([-1, 2, -3, 4, 5]);
 
 module.exports = {
   calculateSum,
   calculateProduct,
-  processData,
+  calculateDifference,
+  calculateDivision,
+  processArray,
+  filterPositive,
   Calculator
 };
