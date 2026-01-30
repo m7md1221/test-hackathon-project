@@ -1,0 +1,16 @@
+{
+  "name": "test-hackathon-project",
+  "version": "1.0.0",
+  "description": "Test project for Clean Code evaluation",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["hackathon", "test"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
