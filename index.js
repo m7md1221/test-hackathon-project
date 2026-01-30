@@ -1,41 +1,53 @@
-// Clean test file - no ESLint errors or warnings
-
-const API_URL = 'https://api.example.com';
+// Test file with ONLY warnings (no errors)
 
 function calculateSum(a, b) {
+  console.log('Calculating sum...'); // Warning: console
   return a + b;
 }
 
 function calculateProduct(a, b) {
+  console.log('Calculating product...'); // Warning: console
   return a * b;
 }
 
-function processNumber(num) {
-  const doubled = num * 2;
-  return doubled;
+function processData(data) {
+  console.warn('Processing data...'); // Warning: console
+  const result = data.map((item) => item * 2);
+  console.log('Processing complete'); // Warning: console
+  return result;
 }
 
-class DataProcessor {
-  constructor(data) {
-    this.data = data;
+class Calculator {
+  constructor() {
+    this.history = [];
   }
 
-  process() {
-    return this.data.map((item) => item * 2);
+  add(a, b) {
+    const result = a + b;
+    console.log('Add result:', result); // Warning: console
+    this.history.push(result);
+    return result;
   }
 
-  filter(predicate) {
-    return this.data.filter(predicate);
+  multiply(a, b) {
+    const result = a * b;
+    console.log('Multiply result:', result); // Warning: console
+    this.history.push(result);
+    return result;
   }
 }
 
-const processor = new DataProcessor([1, 2, 3, 4, 5]);
-const result = processor.process();
-const filtered = processor.filter((item) => item > 2);
+const calc = new Calculator();
+calc.add(10, 20);
+calc.multiply(5, 3);
+
+const data = [1, 2, 3, 4, 5];
+const processed = processData(data);
+console.log('Final result:', processed); // Warning: console
 
 module.exports = {
   calculateSum,
   calculateProduct,
-  processNumber,
-  DataProcessor
+  processData,
+  Calculator
 };
