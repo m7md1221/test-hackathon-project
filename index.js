@@ -1,35 +1,47 @@
-// Perfect clean code - 100/100 score
-// No ESLint errors or warnings
+'use strict';
 
-const API_URL = 'https://api.example.com';
-
+/**
+ * Basic math functions
+ */
 function calculateSum(a, b) {
-  return a + b;
+  return Number(a) + Number(b);
 }
 
 function calculateProduct(a, b) {
-  return a * b;
+  return Number(a) * Number(b);
 }
 
 function calculateDifference(a, b) {
-  return a - b;
+  return Number(a) - Number(b);
 }
 
 function calculateDivision(a, b) {
-  if (b === 0) {
-    throw new Error('Division by zero');
+  if (Number(b) === 0) {
+    throw new Error('Division by zero is not allowed');
   }
-  return a / b;
+  return Number(a) / Number(b);
 }
 
+/**
+ * Array utilities
+ */
 function processArray(arr) {
-  return arr.map((item) => item * 2);
+  if (!Array.isArray(arr)) {
+    throw new TypeError('Expected an array');
+  }
+  return arr.map(item => Number(item) * 2);
 }
 
 function filterPositive(arr) {
-  return arr.filter((item) => item > 0);
+  if (!Array.isArray(arr)) {
+    throw new TypeError('Expected an array');
+  }
+  return arr.filter(item => Number(item) > 0);
 }
 
+/**
+ * Calculator class
+ */
 class Calculator {
   constructor() {
     this.history = [];
@@ -48,21 +60,23 @@ class Calculator {
   }
 
   getHistory() {
-    return this.history;
+    return [...this.history];
   }
 
   clearHistory() {
-    this.history = [];
+    this.history.length = 0;
   }
 }
 
+/**
+ * Example usage
+ */
 const calculator = new Calculator();
-const sum = calculator.add(10, 20);
-const product = calculator.multiply(5, 3);
+calculator.add(10, 20);
+calculator.multiply(5, 3);
 
-const numbers = [1, 2, 3, 4, 5];
-const doubled = processArray(numbers);
-const positive = filterPositive([-1, 2, -3, 4, 5]);
+processArray([1, 2, 3, 4, 5]);
+filterPositive([-1, 2, -3, 4, 5]);
 
 module.exports = {
   calculateSum,
