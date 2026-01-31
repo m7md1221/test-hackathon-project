@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Test Project</h1>
+        <button id="testBtn" onclick="handleClick()">Click Me</button>
+        <div id="result"></div>
+    </div>
+    
+    <script>
+        function handleClick() {
+            console.log("Button clicked")
+            const result = document.getElementById("result")
+            result.textContent = "Button was clicked!"
+        }
+        
+        var oldVar = "test"
+        const apiKey = 'secret123'
+    </script>
+</body>
+</html>
