@@ -12,7 +12,6 @@ function fetchData() {
   return data;
 }
 
-const unusedConstant = 42; // Error: unused
 
 function main() {
   const result = fetchData();
