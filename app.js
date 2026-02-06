@@ -1,5 +1,5 @@
 // Another file with some issues
-const API_URL = 'https://api.example.com';;  
+const API_URL = 'https://api.example.com';
 
 function fetchData() {
   console.log("Fetching data from API..."); 
@@ -14,7 +14,7 @@ function fetchData() {
 
 
 function main() {
-  const result = fetchData();
+  const result = fetchData()
   console.log("Result:", result); // Warning: console
 }
 
